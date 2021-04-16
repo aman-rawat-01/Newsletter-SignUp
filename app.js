@@ -32,11 +32,11 @@ app.post("/", (req, res) => {
 
   const jsonData = JSON.stringify(data);
 
-  const url = "https://us1.api.mailchimp.com/3.0/lists/51897ef127";
+  const url = "https://us1.api.mailchimp.com/3.0/lists/<list id>";
  
   const options = {
     method: "POST",
-    auth: "AmanRawat:cf295b5dda4cc22567e3e9c8bb6b77bd-us1"
+    auth: "<user name>:<api key>"
   };
   const request = https.request(url, options, (response) => {
 
@@ -64,29 +64,5 @@ app.listen(process.env.PORT || 3000, () => {
   console.log("server is running at port 3000");
 });
 
-// API key
-// cf295b5dda4cc22567e3e9c8bb6b77bd-us1
-
-// List Id
-// 51897ef127
 
 // process.env.PORT --> dynamic port heroku will define.
-
-
-// the objects in data are taken from mailchimp.com
-// /develper/reference/lists/batch
-/*
-these are recognised by mailchimp so you cannot change them
- email_address : ,
-            status : "",
-            merge_fields : {
-                FNAME : ,
-                LNAME : 
-*/
-
-// merge field path --> audience/ settings/ merge/ took the name from there
-
-/*
-for doubts regarding use https: node module
-
-*/
